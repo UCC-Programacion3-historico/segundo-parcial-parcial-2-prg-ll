@@ -5,6 +5,12 @@
 
 using namespace std;
 
+typedef struct {
+    int dd; //2 cifras
+    int mm; //2 cifras
+    int yy; //4 cifras
+}fecha;
+
 /**
  * Clase con los datos del mail
  */
@@ -43,16 +49,25 @@ public:
     unsigned long id;
     string from;
     string to;
-    string date;
+    fecha date;
     string subject;
     string content;
 };
 
-email::email(unsigned long id, const string &from, const string &to, const string &date, const string &subject,
-             const string &content) : id(id), from(from), to(to), date(date), subject(subject), content(content) {}
+email::email(unsigned long id, const string &from, const string &to, const fecha &date, const string &subject,
+             const string &content) : id(id), from(from), to(to), date(date), subject(subject), content(content) {
+    id = 0;
+    from = nullptr;
+    to = nullptr;
+    date.dd = 0;
+    date.mm = 0;
+    date.yy = 0;
+    subject = nullptr;
+    content = nullptr;
 
-email::~email() {
+}
 
+email::~email(){=default
 }
 
 unsigned long email::getId() const {

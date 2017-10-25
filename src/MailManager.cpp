@@ -4,7 +4,7 @@
  * Constructor
  */
 MailManager::MailManager() {
-
+    this->
 }
 
 
