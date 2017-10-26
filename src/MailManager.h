@@ -11,7 +11,7 @@ using namespace std;
 class MailManager {
 private:
     // Propiedades y metodos privados de la clase
-
+    email *FirstMail;
 public:
     MailManager();
 
@@ -20,7 +20,7 @@ public:
 
     void deleteMail(unsigned long id); //borra el email
 
-    vector<email> getSortedByDate(); //obtener los de una fecha puntual
+    vector<email> getSortedByDate(); //ordena por fecha
 
     vector<email> getSortedByDate(string desde, string hasta); //obtener los que estan entre dos fechas
 
@@ -28,7 +28,7 @@ public:
 
     vector<email> getByFrom(string from);  //busca los mails de un emisor
 
-    vector<email> getByQuery(string query);  //query = consulta
+    vector<email> getByQuery(string query);  //cualquier cosa
 };
 
 

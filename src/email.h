@@ -5,11 +5,12 @@
 
 using namespace std;
 
-typedef struct {
+/*typedef struct {
     int dd; //2 cifras
     int mm; //2 cifras
     int yy; //4 cifras
-}fecha;
+    bool Verifica_Fecha();
+}fecha;*/  //la fecha y hora es con string -> 2017-25-10 20:25:00 -> para ordenar
 
 /**
  * Clase con los datos del mail
@@ -45,30 +46,28 @@ public:
 
     void setContent(const string &content);
 
+    email *getNext() const;
+
+    void setNext(email *next);
+
 public:
-    unsigned long id;
+    unsigned long id; //incrementa de a 1 : n cifras a decidir
     string from;
     string to;
-    fecha date;
+    string date;
     string subject;
     string content;
+    email * next;
 };
 
-email::email(unsigned long id, const string &from, const string &to, const fecha &date, const string &subject,
-             const string &content) : id(id), from(from), to(to), date(date), subject(subject), content(content) {
-    id = 0;
-    from = nullptr;
-    to = nullptr;
-    date.dd = 0;
-    date.mm = 0;
-    date.yy = 0;
-    subject = nullptr;
-    content = nullptr;
+email::email(unsigned long id, const string &from, const string &to, const string &date, const string &subject,
+             const string &content) //: id(id), from(from), to(to), date(date), subject(subject), content(content)
+{
+
 
 }
 
-email::~email(){=default
-}
+email::~email(){}
 
 unsigned long email::getId() const {
     return id;
@@ -116,6 +115,14 @@ const string &email::getContent() const {
 
 void email::setContent(const string &content) {
     email::content = content;
+}
+
+email *email::getNext() const {
+    return next;
+}
+
+void email::setNext(email *next) {
+    email::next = next;
 }
 
 #endif // EMAIL_H
