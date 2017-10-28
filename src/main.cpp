@@ -18,9 +18,8 @@ int main() {
     cout << "6. Buscar una palabra suelta" << endl;
     cout << "0. SALIR" << endl;
     cin >> opcion;
-    while(opcion!=0) {
-        switch(opcion)
-        {
+    while (opcion != 0) {
+        switch (opcion) {
             case 1:
 
                 break;
@@ -43,9 +42,10 @@ int main() {
 
                 break;
             default:
-                cout << "Ingrese una opcion validida por favor"<< endl;
+                cout << "Ingrese una opcion validida por favor" << endl;
         }
 
         return 0;
     }
+}
 
