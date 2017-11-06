@@ -11,7 +11,6 @@ using namespace std;
 class MailManager {
 private:
     // Propiedades y metodos privados de la clase
-
 public:
     MailManager();
 
