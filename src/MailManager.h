@@ -12,8 +12,7 @@ using namespace std;
 class MailManager {
 private:
     // Propiedades y metodos privados de la clase
-    email *FirstMail;
-    ArbolBinario<email> gestor;
+    ArbolBinario gestor;
     unsigned long id;
 public:
     MailManager();

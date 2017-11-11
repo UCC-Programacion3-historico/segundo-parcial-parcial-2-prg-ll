@@ -7,7 +7,8 @@
  * Constructor
  */
 MailManager::MailManager() {
-    id = 0;
+    id = 1;
+
 }
 
 
@@ -16,7 +17,8 @@ MailManager::MailManager() {
  * @param m mail a agregar
  */
 void MailManager::addMail(email m) {
-    gestor.put(m);
+    gestor.put(m, id);
+    id++;
 }
 
 

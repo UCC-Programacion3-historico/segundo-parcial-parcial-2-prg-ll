@@ -1,5 +1,7 @@
 #ifndef HASHENTRY_H
 #define HASHENTRY_H
+
+#include <iostream>
 using namespace std;
 
 #include "email.cpp"
@@ -12,7 +14,7 @@ private:
     email dato;
 public:
 
-    NodoArbol(email dato);
+    NodoArbol(email dato, unsigned long int id);
 
     email getDato() const;
 
@@ -22,7 +24,7 @@ public:
 
     void put(NodoArbol *nodo);
 
-    email search(email d);
+    email search(unsigned long int id);
 
     NodoArbol *remover(email param);
 
@@ -52,31 +54,32 @@ public:
 
 
 
-NodoArbol::NodoArbol(email dato) : dato(dato) {
+NodoArbol::NodoArbol(email dato, unsigned long int id) : dato(dato) {
+    dato.id = id;
     izq = NULL;
     der = NULL;
 }
 
 
 
-void NodoArbol::put(email d) {
+void NodoArbol::put(email m, unsigned long int id) {
 
-    if (d == dato)
+    if (m.date == dato.date)
         throw 1;
-    else if (d < dato) { // va a la izq
+    else if (m.date < dato.date) { // va a la izq
         if (izq == NULL)
-            izq = new NodoArbol(d);
+            izq = new NodoArbol(m, id);
         else
-            izq->put(d);
+            izq->put(m);
     } else { // va a la der
         if (der == NULL)
-            der = new NodoArbol(d);
+            der = new NodoArbol(m, id);
         else
-            der->put(d);
+            der->put(m);
     }
 }
 
-template<class T>
+/*template<class T>
 void NodoArbol::put(NodoArbol *nodo) {
 
     if (nodo->getDato() == dato)
@@ -93,21 +96,21 @@ void NodoArbol::put(NodoArbol *nodo) {
             der->put(nodo);
     }
 }
+*/
 
-
-email NodoArbol::search(email d) {
-    if (d == dato) {
+email NodoArbol::search(unsigned long int id) {
+    if (id == dato.id) {
         return dato;
-    } else if (d < dato) {
+    } else if (id < dato.id) {
         if (izq == NULL)
             throw 3;
         else
-            return izq->search(d);
+            return izq->search(id);
     } else {
         if (der == NULL)
             throw 3;
         else
-            return der->search(d);
+            return der->search(id);
     }
 }
 

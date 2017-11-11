@@ -9,11 +9,11 @@ private:
 public:
     ArbolBinario();
 
-    void put(email dato);
+    void put(email m, unsigned long int id);
 
-    email search(email dato);
+    email search(unsigned long int id);
 
-    void remove( dato);
+    void remover(unsigned long int id);
 
     void preorder();
 
@@ -57,12 +57,12 @@ ArbolBinario::~ArbolBinario() {
  * @return el valor buscado
  */
 
-email ArbolBinario::search(email dato) {
+email ArbolBinario::search(unsigned long int id) {
 
     if (raiz == NULL) {
         throw 3;
     } else {
-        return raiz->search(dato);
+        return raiz->search(id);
     }
 }
 
@@ -73,11 +73,11 @@ email ArbolBinario::search(email dato) {
  * @param dato Dato a agregar
  */
 
-void ArbolBinario::put(email dato) {
+void ArbolBinario::put(email m, unsigned long int id) {
     if (raiz == NULL) {
-        raiz = new NodoArbol(dato);
+        raiz = new NodoArbol(m, id);
     } else {
-        raiz->put(dato);
+        raiz->put(m, id);
     }
 }
 
@@ -87,14 +87,18 @@ void ArbolBinario::put(email dato) {
  * @param clave Clave para identificar el nodo a borrar
  */
 
-void ArbolBinario::remove(email dato) {
+void ArbolBinario::remover(unsigned long int id) {
+    email *tmp;
+
+    tmp = search(id);
+
     NodoArbol *aux;
     if (raiz == NULL) {
         throw 6;
     } else {
 
         aux = raiz;
-        raiz = raiz->remover(dato);
+        raiz = raiz->remover(tmp);
         if (raiz != aux)
             delete aux;
     }
