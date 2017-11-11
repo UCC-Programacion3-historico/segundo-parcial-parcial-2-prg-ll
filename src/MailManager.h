@@ -1,6 +1,8 @@
 #include <string>
 #include <vector>
 #include "email.h"
+#include "Arbol.h"
+
 
 #ifndef MAILMANAGER_H
 #define MAILMANAGER_H
@@ -12,6 +14,8 @@ class MailManager {
 private:
     // Propiedades y metodos privados de la clase
     email *FirstMail;
+    ArbolBinario<email> gestor;
+    unsigned long id;
 public:
     MailManager();
 

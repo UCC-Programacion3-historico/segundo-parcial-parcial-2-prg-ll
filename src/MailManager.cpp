@@ -1,10 +1,13 @@
 #include "MailManager.h"
 
+
+
+
 /**
  * Constructor
  */
 MailManager::MailManager() {
-    this->FirstMail = nullptr;
+    id = 0;
 }
 
 
@@ -13,13 +16,7 @@ MailManager::MailManager() {
  * @param m mail a agregar
  */
 void MailManager::addMail(email m) {
-    //auto *NM = new <email> (m, FirstMail);
-    //int cont = 0;
-    email *aux = FirstMail;
-
-    auto *NM = new <email> (m.id, m.from, m.to, m.date, m.subject, m.content, FirstMail); //NM = New Mail
-    FirstMail = NM;
-    aux->getNext();
+    gestor.put(m);
 }
 
 
@@ -28,15 +25,7 @@ void MailManager::addMail(email m) {
  * @param id identificador del mail a borrar
  */
 void MailManager::deleteMail(unsigned long id) {
-    email *aux =  FirstMail;
 
-    while (aux->id != id -1 && aux->getNext() != nullptr){
-        aux->getNext();
-    }
-
-    email*tmp = aux->getNext();
-    aux->setNext(tmp->getNext());
-    delete[] tmp;
 
 }
 
