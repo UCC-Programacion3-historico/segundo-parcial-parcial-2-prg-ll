@@ -3,18 +3,17 @@
 
 #include "Nodo.h"
 
-template<class T>
 class ArbolBinario {
 private:
-    NodoArbol<T> *raiz;
+    NodoArbol *raiz;
 public:
     ArbolBinario();
 
-    void put(T dato);
+    void put(email dato);
 
-    T search(T dato);
+    email search(email dato);
 
-    void remove(T dato);
+    void remove( dato);
 
     void preorder();
 
@@ -36,8 +35,8 @@ public:
  * @tparam K Clave por la cual va a ordenar el árbol
  * @tparam T Valor guardado por el árbol
  */
-template<class T>
-ArbolBinario<T>::ArbolBinario() {
+
+ArbolBinario::ArbolBinario() {
     raiz = NULL;
 }
 
@@ -45,8 +44,8 @@ ArbolBinario<T>::ArbolBinario() {
 /**
  * Destructor del Arbol
  */
-template<class T>
-ArbolBinario<T>::~ArbolBinario() {
+
+ArbolBinario::~ArbolBinario() {
 
 }
 
@@ -57,8 +56,8 @@ ArbolBinario<T>::~ArbolBinario() {
  * @param clave Valor a buscar
  * @return el valor buscado
  */
-template<class T>
-T ArbolBinario<T>::search(T dato) {
+
+email ArbolBinario::search(email dato) {
 
     if (raiz == NULL) {
         throw 3;
@@ -73,10 +72,10 @@ T ArbolBinario<T>::search(T dato) {
  * @param clave Clave para agregar el dato
  * @param dato Dato a agregar
  */
-template<class T>
-void ArbolBinario<T>::put(T dato) {
+
+void ArbolBinario::put(email dato) {
     if (raiz == NULL) {
-        raiz = new NodoArbol<T>(dato);
+        raiz = new NodoArbol(dato);
     } else {
         raiz->put(dato);
     }
@@ -87,9 +86,9 @@ void ArbolBinario<T>::put(T dato) {
  * Elimina un dato del árbol
  * @param clave Clave para identificar el nodo a borrar
  */
-template<class T>
-void ArbolBinario<T>::remove(T dato) {
-    NodoArbol<T> *aux;
+
+void ArbolBinario::remove(email dato) {
+    NodoArbol *aux;
     if (raiz == NULL) {
         throw 6;
     } else {
@@ -106,8 +105,8 @@ void ArbolBinario<T>::remove(T dato) {
  * Informa si un árbol esta vacío
  * @return
  */
-template<class T>
-bool ArbolBinario<T>::esVacio() {
+
+bool ArbolBinario::esVacio() {
     return raiz == NULL;
 }
 
@@ -115,8 +114,8 @@ bool ArbolBinario<T>::esVacio() {
 /**
  * Recorre un árbol en preorden
  */
-template<class T>
-void ArbolBinario<T>::preorder() {
+
+void ArbolBinario::preorder() {
     if (raiz != NULL) {
         raiz->preorder();
     }
@@ -126,8 +125,8 @@ void ArbolBinario<T>::preorder() {
 /**
  * Recorre un árbol en orden
  */
-template<class T>
-void ArbolBinario<T>::inorder() {
+
+void ArbolBinario::inorder() {
     if (raiz != NULL) {
         raiz->inorder();
     }
@@ -137,8 +136,8 @@ void ArbolBinario<T>::inorder() {
 /**
  * Recorre un árbol en postorden
  */
-template<class T>
-void ArbolBinario<T>::postorder() {
+
+void ArbolBinario::postorder() {
     if (raiz != NULL) {
         raiz->postorder();
     }
@@ -148,8 +147,8 @@ void ArbolBinario<T>::postorder() {
 /**
  * Muestra un árbol por consola
  */
-template<class T>
-void ArbolBinario<T>::print() {
+
+void ArbolBinario::print() {
 
     if (raiz != NULL) {
         raiz->print(false, "");
