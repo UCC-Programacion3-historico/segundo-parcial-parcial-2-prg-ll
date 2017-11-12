@@ -1,7 +1,7 @@
 #ifndef HASHMAP_H
 #define HASHMAP_H
 
-#include "Nodo.h"
+#include "Nodo.cpp"
 
 class ArbolBinario {
 private:

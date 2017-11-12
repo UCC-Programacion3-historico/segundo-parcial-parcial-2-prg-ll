@@ -20,6 +20,9 @@ public:
     email(unsigned long id, const string &from, const string &to, const string &date, const string &subject,
           const string &content);
 
+    email(unsigned long id, const string &from, const string &to, const string &date, const string &subject,
+          const string &content, email *next);
+
     virtual ~email();
 
     unsigned long getId() const;
@@ -50,6 +53,8 @@ public:
 
     void setNext(email *next);
 
+    email operator = (email m);
+
 public:
     unsigned long id; //incrementa de a 1 : n cifras a decidir
     string from;
@@ -61,13 +66,17 @@ public:
 };
 
 email::email(unsigned long id, const string &from, const string &to, const string &date, const string &subject,
-             const string &content) //: id(id), from(from), to(to), date(date), subject(subject), content(content)
-{
+             const string &content, email *next) : id(id), from(from), to(to), date(date), subject(subject),
+                                                   content(content), next(next) {}
 
+
+
+
+
+
+email::~email(){
 
 }
-
-email::~email(){}
 
 unsigned long email::getId() const {
     return id;
@@ -123,6 +132,16 @@ email *email::getNext() const {
 
 void email::setNext(email *next) {
     email::next = next;
+}
+
+email email::operator=(email m) {
+    id = m.id;
+    from = m.from;
+    to = m.to;
+    date = m.date;
+    subject = m.subject;
+    content = m.content;
+    next = m.next;
 }
 
 #endif // EMAIL_H
